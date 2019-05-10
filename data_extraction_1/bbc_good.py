@@ -33,6 +33,7 @@ for i in soup.findAll('li',attrs={'class':'expanded link-level-1 item-2 left-nav
     for ur_l in i.findAll('li',attrs={'class':['first leaf link-level-3 no-sub-level','leaf link-level-3 no-sub-level']}):
         for link in ur_l.findAll('a'):
             urls.append(link.get('href'))
+print("extracting recipe tab urls completed")
 
 #Formating acquired URLS
 url_test = 'http://www.bbcgoodfood.com%s'
@@ -46,6 +47,7 @@ for i in urls:
         url = url_test %i
         url_s.append(url)
 urls=url_s+url_c
+print("formating urls completed")
 
 #acquiring the urls of all pages in each category
 page_links = []
@@ -63,6 +65,8 @@ for url in urls:
         for link in pager.findAll('a'):
             page_links.append(link.get('href'))
             print(link.get('href'))
+print("acquiring page link urls completed")
+
 url_test = 'http://www.bbcgoodfood.com%s'
 
 #Formating the page links
@@ -70,6 +74,7 @@ for i in page_links:
         url = url_test %i
         urls.append(url)
         print(url)
+print("formating page link urls completed")
 
 #acquruing titles and its urls from urls[]
 titles = []
@@ -98,7 +103,9 @@ for i in urls:
         time.sleep(5)
     except:
         print('unknown error ', i)
+print("extraction of titles and recipe urls complete...!")
 
+print("checking and removing duplicates.....")
 def Remove(duplicate):
     final_list = []
     for num in duplicate:
@@ -110,6 +117,7 @@ def Remove(duplicate):
 #removing duplicate titles if any
 final_titles = Remove(titles)
 len(final_titles)
+print("finished..!!")
 
 #creating a pandas Dataframe and inserting aquired titles and thier corresponding urls
 df = pd.DataFrame()
@@ -130,6 +138,7 @@ df['Urls'] = df_urls
 df
 
 #extracting recipes from each url and inserting them in to the pandas DataFrame
+print("extracting ingredients from recipe urls")
 x=0
 final_resp = []
 for i in df['Urls']:
@@ -165,6 +174,11 @@ for i in df['Urls']:
         final_resp.append('error')
         time.sleep(10)
         driver.quit()
+ print("finished...!!!")
 
 df['Recipe'] = final_resp
 final_df = df[['Title', 'Recipe','Urls']]
+
+final_df.to_csv('BBCgood_data.csv', mode='a', header=True,index=False)
+
+print("Dataframe is saved")
