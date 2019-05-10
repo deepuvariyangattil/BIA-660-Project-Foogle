@@ -28,9 +28,10 @@ r = requests.get(url,headers={'User-Agent': 'Mozilla/5.0'})
 soup = BeautifulSoup(r.text, 'lxml')
 
 #extracting urls from each page in" Taste of Home"
+print("extracting urls from each page in Taste of Home...")
 urls = []
 p_a = 0
-for pages in range(0,1687):#total number of recipe pages in "Taste of Home" 1686
+for pages in range(0,1687):#total number of recipe pages in "Taste of Home" 1686(you could change the page number to a lesser number if you dont want whole Data")
     time.sleep(5)
     current = driver.current_url
     r = requests.get(current,headers={'User-Agent': 'Mozilla/5.0'})
@@ -43,8 +44,9 @@ for pages in range(0,1687):#total number of recipe pages in "Taste of Home" 1686
     Page_link = driver.find_element_by_link_text('Next Page')
     Page_link.click()
 
+print("number of urls are....")
 len(urls)
-
+print("checking for duplicates and removing them")
 def Remove(duplicate):
     final_list = []
     for num in duplicate:
@@ -53,9 +55,11 @@ def Remove(duplicate):
     return final_list
 #removing duplicate urls
 urls = Remove(urls)
+print("number of urls after removing duplicates")
 len(urls)
 
-#extracting title and ingredients from each urls
+#extracting title and ingredients from each url
+print("extracting title and ingredients from each url....")
 recipes = []
 defe_url = []
 titles = []
@@ -107,6 +111,7 @@ for url in urls:
         titles.append('IGNORE THIS')
         driver.quit()
         time.sleep(10)
+print("Finished Extraction....!!")
 
 #inserting aquired data in pandas DataFrame
 df = pd.Dataframe()
@@ -114,7 +119,8 @@ df['Title'] = titles
 df['Recipie'] = recipes
 df['Url'] = urls
 df = df[df.Title != 'IGNORE THIS']
-
 final_df = df[['Title', 'Recipe','Url']]
-
 final_df.to_csv('T_O_h.csv',header=True,index=False)
+print("finished Creating and Saving the Dataframe...!!")
+print("sample of final DataFrame")
+final_df.head()
