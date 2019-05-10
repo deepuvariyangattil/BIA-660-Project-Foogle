@@ -135,7 +135,8 @@ for i in df['Urls']:
     print(url)
 
 df['Urls'] = df_urls
-df
+print("sample of DataFrame")
+df.head()
 
 #extracting recipes from each url and inserting them in to the pandas DataFrame
 print("extracting ingredients from recipe urls")
@@ -174,11 +175,11 @@ for i in df['Urls']:
         final_resp.append('error')
         time.sleep(10)
         driver.quit()
- print("finished...!!!")
+print("finished...!!!")
 
 df['Recipe'] = final_resp
 final_df = df[['Title', 'Recipe','Urls']]
-
 final_df.to_csv('BBCgood_data.csv', mode='a', header=True,index=False)
-
+print("sample of final_df")
+final_df.head()
 print("Dataframe is saved")
