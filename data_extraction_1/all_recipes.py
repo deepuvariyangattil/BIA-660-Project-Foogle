@@ -128,6 +128,7 @@ def Enter_Topic():
     Topic_link.click()
 Enter_Topic()#enter the category you are interested in scraping the data
 
+print("extracting urls of the category")
 def extract_urls():
     global urls
     urls = []
@@ -170,10 +171,11 @@ def extract_urls():
         button.location_once_scrolled_into_view
         button.click()
 extract_urls() #extracting the urls of the category
-
+print("number of urls..")
 len(urls)
 
 #removing duplicates in urls if any
+print("checking for duplicates and removing them....")
 def Remove(duplicate):
     final_list = []
     for num in duplicate:
@@ -182,9 +184,10 @@ def Remove(duplicate):
     return final_list
 
 urls = Remove(urls)
+print("number of urls after removing duplicates....")
 len(urls)
 
-
+print("extracting titles and ingredients for recipes...")
 def data_extract():
     global df
     df = pd.DataFrame()
@@ -236,9 +239,12 @@ data_extract() #extraction of title and ingredients of each url
 df['Recipie'] = df['Recipie'].str.get(0)
 df['Title'] = df['Title'].str.get(0)
 df = df[df.Recipie != '']
-df
+print("Created DataFrame Sucessfully")
+print("Sample of DataFrame")
+df.head()
 
-#only for initial use if the csv already contains data skip the following LINE
+
+#only for initial use if the csv already contains data comment and skip the next LINE OF CODE and uncomment the last line
 df.to_csv('AR_data.csv', mode='a', header=True,index=False)
-
-df.to_csv('basic_data.csv', mode='a', header=False,index=False)
+print("DataFrame saved...!!")
+#df.to_csv('basic_data.csv', mode='a', header=False,index=False)
