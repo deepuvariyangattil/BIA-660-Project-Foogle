@@ -1,0 +1,30 @@
+<main class="result">
+
+    <header>
+    <table width="100%">
+        <tr>
+            <td class="td-left" width="10%">    <a href="#">About us</a></li>        </td>
+            <td class="td-center" width="80%"> <a href="http://localhost:3000"> <img src="public/foogle.jpg" alt="foodle logo" height="120px" width="120px">    </a> </td>
+            <td class="td-right" width="5%"> <p class="header-connect">Connect: </p></td>
+            <td class="td-right" width="5%">    <a> <img src="public/fb.png" alt="foodle logo" height="35px" width="35px">  </a>  </td>
+            <td class="td-right" width="5%">    <img src="public/instagram.jpg" alt="foodle logo" height="35px" width="35px">     </td>    
+        </tr>
+    </table>
+</header>
+
+    <div>
+        {{#if err}}
+        {{err}}
+        {{/if}}
+        {{#each data}}
+        <h1><a href={{this.Urls}}>{{this.Title}}</a></h1>
+        <h4><p>Matched Ingredients: {{this.matchedList}}</p></h4>
+        {{/each}}
+        
+    </div>
+
+<footer class="resultfooter">
+    <hr>
+    <p class="footerp"><span>A search engine for food alchemists...!</span></p>
+</footer>
+</main>

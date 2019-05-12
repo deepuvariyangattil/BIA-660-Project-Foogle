@@ -1,0 +1,189 @@
+body{
+    
+    text-align: center;
+    color:black;
+    font-family:monospace; 
+    font-weight: bold;
+}
+
+.bg{
+    background-image: url("../public/bg4.jpg");  
+    min-height: 100%;
+    min-width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.result{
+    background-image: url("../public/bgcolor.png");  
+    min-height: 100%;
+    min-width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center;
+    top: 0;
+    left: 0;
+}
+
+
+h1{
+    color:rgb(173, 84, 32);
+}
+header{
+    height: 20%;
+}
+
+input[type=submit]{
+    box-align: center;
+    width:15%;
+    height:45px;
+    background-color: white;
+    color:black;
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    font-weight: 1000;
+    font-size: 20px;
+    border-radius: 25px;
+    border-color: transparent;
+    box-shadow: 4px 4px 4px 0px gray;
+}
+
+input[type=textbox]{
+    margin-left:20%;
+    margin-right: 20%;
+    width:60%;
+    height: 30px;
+    color: black;
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    border-radius: 25px;
+    box-shadow: 4px 4px 4px 0px gray;
+    border-color: transparent;
+}
+
+.error-Container-hidden{
+    display:none;
+}
+
+.error-Container-display{
+    display:block;
+    color:red;  
+    border:1px solid red;
+}
+
+span{
+    margin:1%;
+}
+hr{
+    width:100%;
+    margin-left: 0;
+}
+
+footer{
+   position: fixed;
+   bottom:0;
+   width:100%;
+   height:60px; 
+   color: black;
+   font-family: "Comic Sans MS", cursive, sans-serif;
+   font-size: 20px;
+}
+
+.resultfooter{
+    position:relative;
+    bottom:0;
+    width:100%;
+    color: black; 
+    height:60px; 
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 20px;
+ }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  li {
+    float: left;
+    text-align: center;
+    font-size: 18px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+  }
+
+  p{
+      color: white;
+      font-family:"Comic Sans MS", cursive, sans-serif;
+  }
+
+  .footerp{
+    color: black;
+  }
+
+  .header-connect{
+    color: black;
+    font-family:"Comic Sans MS", cursive, sans-serif;
+  }
+
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: #111;
+  }
+
+  /*img.bg {
+    min-height: 100%;
+    min-width: 1024px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+@media screen and (max-width: 1024px){
+    img.bg {
+    left: 50%;
+    margin-left: -512px; }
+}*/
+
+li.logo{
+    height: 100%;
+}
+
+nav{
+    height: 200px;;
+}
+
+header{
+    width: "100%";
+    text-align: center;
+    font-size: 25px;
+}
+
+td img{
+    border-radius: 50%;
+    border-width: 5px;
+    border: 2px solid black;
+}
+
+a{
+    text-decoration: none;
+    color:black;
+}
+
+form label{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
